@@ -1,5 +1,7 @@
 ![alt text](https://mapaction.org/wp-content/themes/mapaction/images/logo.svg)
 
+[Documentation Site](https://stellular-basbousa-d782de.netlify.app/)
+
 # Contribute
 
 It is recommended to install `docsify-cli` globally, which helps initializing and previewing the website locally.
@@ -26,7 +28,9 @@ docsify serve docs
 
 # Guide
 
-## Software development guide for MapAction
+> Software development guide for MapAction
 
-[Documentation Site](https://stellular-basbousa-d782de.netlify.app/)
+
+
+
 
