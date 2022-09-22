@@ -129,8 +129,6 @@ Sphinx uses the reStructuredText markup language by default, and can read MyST m
 
 ### .md
 
-![alt text](https://w7.pngwing.com/pngs/87/883/png-transparent-markdown-logos-and-brands-line-filled-icon-thumbnail.png)
-
 Please have a quick look at [Markdown syntax](https://www.markdownguide.org/cheat-sheet/) to see how easy it is to write in your next project!
 
 
