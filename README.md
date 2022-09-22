@@ -4,17 +4,23 @@
 
 # Contribute
 
+## Set this up locally
+
 It is recommended to install `docsify-cli` globally, which helps initializing and previewing the website locally.
 
 ```bash
+# Install nvm appropriately for your os
+
+# Install a newish npm version (at time of writing 18)
+nvm install --latest-npm
+nvm use 18.9.0
+
+# Install docsify
 npm i docsify-cli -g
+
+# Run this local dev site
+npx netlify-cli dev
 ```
-
-### Writing content
-
-- `README.md` acts as the home page
-
-You can easily update the documentation in `README.md`, of course you can add [more pages](more-pages.md).
 
 ### Preview your site
 
@@ -26,13 +32,107 @@ docsify serve docs
 
 ?> For more use cases of `docsify-cli`, head over to the [docsify-cli documentation](https://github.com/docsifyjs/docsify-cli).
 
+
+### Writing content
+
+- `README.md` acts as the home page
+
+You can easily update the documentation in `README.md`, of course you can add [more pages](more-pages.md).
+
 # Guide
 
 > Software development guide for MapAction
 
 ## Documentation
+
+![alt text](https://libapps.s3.amazonaws.com/accounts/125446/images/55c8bcff18b94.png)
+
+Image Source: https://github.com/ybouz2/project-tech/wiki/Coding-standarts
+
+### Why to Write Documentation
+
+(Library guides. Library Guides. (n.d.). Retrieved September 22, 2022, from https://guides.lib.berkeley.edu/ )
+
+Documentation effectively connects humans and machines.
+
+Why writing documentation is important:
+
+- For you:
+    - You will be using your code in 6 months
+    - You want people to use your code and give you credit
+    - You want to learn self-determination
+    - Others would be encouraged to contribute to your code
+
+- For others: 
+    - Others can easily use your code and build upon it
+
+- For science:
+    - Advance the science
+    - Encourage open science 
+    - Allow reproducibility and transparency
+
+What should you document about your research? Everything! All the data, notes, code, and materials someone else would need to reproduce your work.
+
+Consider the following questions:
+
+- How is your data gathered?
+- What variables did you use?
+- Did you use any code to clean/analyze your data?
+
+### Best practices for Documenting your project
+
+- Include a README file that contains
+    - A brief description of the project
+    - Installation instructions
+    - A short example/tutorial
+- Allow issue tracker for others
+- Write an API documentation
+    - What a function does
+    - What are the function's parameters or arguments are
+    - What a function returns
+ 
+ 
+- Document your code
+- Apply coding conventions, such as file organization, comments, naming conventions, programming practices, etc.
+- Include information for contributors
+- Include citation information
+- Include licensing information
+- Link to your e-mail address at the end
+- List all the versions of the files along with the major edits you did in each version
+
+
 ### Sphinx
+
+![alt text](https://www.sphinx-doc.org/en/master/_static/sphinxheader.png)
+
+Sphinx makes it easy to create intelligent and beautiful documentation.
+
+Here are some of Sphinx’s major features:
+
+- Output formats: HTML (including Windows HTML Help), LaTeX (for printable PDF versions), ePub, Texinfo, manual pages, plain text
+
+- Extensive cross-references: semantic markup and automatic links for functions, classes, citations, glossary terms and similar pieces of information
+
+- Hierarchical structure: easy definition of a document tree, with automatic links to siblings, parents and children
+
+- Automatic indices: general index as well as a language-specific module indices
+
+- Code handling: automatic highlighting using the Pygments highlighter
+
+- Extensions: automatic testing of code snippets, inclusion of docstrings from Python modules (API docs) via built-in extensions, and much more functionality via third-party extensions.
+
+- Themes: modify the look and feel of outputs via creating themes, and re-use many third-party themes.
+
+- Contributed extensions: dozens of extensions contributed by users; most of them installable from PyPI.
+
+Sphinx uses the reStructuredText markup language by default, and can read MyST markdown via third-party extensions. Both of these are powerful and straightforward to use, and have functionality for complex documentation and publishing workflows. They both build upon Docutils to parse and write documents.
+
 ### .md
+
+![alt text](https://d33wubrfki0l68.cloudfront.net/f1f475a6fda1c2c4be4cac04033db5c3293032b4/513a4/assets/images/markdown-mark-white.svg)
+
+Please have a quick look at [Markdown syntax](https://www.markdownguide.org/cheat-sheet/) to see how easy it is to write in your next project!
+
 
 ### Docstrings
 
