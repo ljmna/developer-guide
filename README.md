@@ -107,6 +107,8 @@ Consider the following questions:
 
 Sphinx makes it easy to create intelligent and beautiful documentation.
 
+TLDR: See the [quickstart](https://shunsvineyard.info/2019/09/19/use-sphinx-for-python-documentation/)
+
 Here are some of Sphinx’s major features:
 
 - Output formats: HTML (including Windows HTML Help), LaTeX (for printable PDF versions), ePub, Texinfo, manual pages, plain text
