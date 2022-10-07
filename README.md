@@ -291,6 +291,13 @@ Depending on the type of workload such as in large repositories; multiple plans 
 The git cache is used even when different plans checkout the same repository to prevent duplicate and unnecessary checkouts of the same repository between plans. 
     
 #### Choose triggers carefully
+
+##### Skipping a build trigger
+In some cases, you may want to make a change to your source code but you don't want to invoke a build. For example, you might not want to invoke a build when you update documentation or configuration files.
+
+In such scenarios, you can include [skip ci] or [ci skip] in the commit message, and a build will not be invoked.
+
+If you want to run a build on that commit later, use the Run trigger button in the Triggers page.
     
 #### Favour hooking over polling
     
