@@ -197,6 +197,8 @@ See the [quickstart](https://flake8.pycqa.org/en/latest/index.html#quickstart) d
 
 ### Trunk based changes
 
+In trunk-based development, developers push code directly into trunk. Changes made in the release branches—snapshots of the code when it's ready to be released—are usually merged back to trunk (depicted by the downward arrows) as soon as possible. In this approach, there are cases where bug fixes must be cherry picked and merged into releases (depicted by the upward arrow), but these cases are not as frequent as the development of new features in trunk. In cases where releases happen multiple times a day, release branches are not required at all, because changes can be pushed directly into trunk and deployed from there. One key benefit of the trunk-based approach is that it reduces the complexity of merging events and keeps code current by having fewer development lines and by doing small and frequent merges.
+
 ![alt text](http://qszhuan.github.io/assets/images/trunk_based_development.png)
 
 Learn why [this](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) version control management practice is common practice among DevOps teams.
