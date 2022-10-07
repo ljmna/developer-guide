@@ -277,6 +277,19 @@ Remember the “shallow boundary” mentioned earlier? The client sends that bou
 ![alt text](https://github.blog/wp-content/uploads/2020/12/shallow-fetch-boundary.png?resize=650%2C248?w=650)
 
 #### Cache the repository on build agents
+    
+Google Cloud. 2022. DevOps tech: Continuous integration  |  DevOps capabilities  |  Google Cloud. [online] Available at: <https://cloud.google.com/architecture/devops/devops-tech-continuous-integration> [Accessed 7 October 2022].
+    
+Use case example:
+    
+We have Bitbucket connected with Bamboo. We are planning to set up another Bamboo instance in our European office (We are in the US) but our Stash (Git) server is also located in the US. Doing Git clones or pulls from Europe to the US will take an exponential amount of time. If the repository is cached on the Bamboo server or Agents, builds would become faster because the Git/Bitbucket repository lives in a different part of the world. Where does Bamboo store the repository cache? If we are running elastic agents is the code still cached on the server somewhere after the agent expires?
+    
+[Repository caching](https://confluence.atlassian.com/bamkb/how-stored-git-caches-speed-up-builds-690848923.html) means that code is first fetched from the repository to a local cache and then another fetch is made from this cache to your plan's workspace that is located under the plan's working directory. Repository caching happens automatically on the Bamboo Server for its internal operations and its Local Agents and is enabled by default on Remote and Elastic Agents (it can be disabled). When using a repository cache, on the first run of a plan, Bamboo performs a full clone and stores the data in a local cache directory and completes the build. On subsequent builds, Bamboo does a git fetch from the remote repository to see if there are additional changes and if so, updates the local cache. Similar to the first run, the data for the plan is then checked out from the local cache. Hence, a faster checkout. To get a better understanding, you can enable "verbose logs" located under the advanced settings of the repository, trigger a build, and follow the sequence of events.
+
+Depending on the type of workload such as in large repositories; multiple plans using the local cache and producing a disk bottleneck, or also on very active repositories whose Build plans have a requirement to be linked to the latest changes, etc, it may be necessary to not use any caching and instead use the latest version from the repository. You can disable the repository caching on agents by unsetting the "Enable repository caching on agents" option on the Repository configuration.
+
+The git cache is used even when different plans checkout the same repository to prevent duplicate and unnecessary checkouts of the same repository between plans. 
+    
 #### Choose triggers carefully
 #### Favour hooking over polling
 #### Be observant / sensitive to the build process
