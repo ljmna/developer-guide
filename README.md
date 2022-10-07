@@ -305,8 +305,8 @@ While polling and webhooks both accomplish the same task, webhooks are far more 
 #### Be observant / sensitive to the build process
 
 
-## Versions
-### LST
+## Dependency versions
+### LTS
 ### Bleeding
 ### Stable
 ### Pulse
