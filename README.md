@@ -197,6 +197,8 @@ See the [quickstart](https://flake8.pycqa.org/en/latest/index.html#quickstart) d
 
 ### Trunk based changes
 
+![alt text](http://qszhuan.github.io/assets/images/trunk_based_development.png)
+
 Learn why [this](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) version control management practice is common practice among DevOps teams.
 
 ### CI-friendly repositories
