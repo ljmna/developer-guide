@@ -244,12 +244,38 @@ Git LFS handles large files by storing references to the file in the repository,
 
 Using Git LFS, you can store files up to:
 
-GitHub Free	2 GB
-GitHub Pro	2 GB
-GitHub Team	4 GB
-GitHub Enterprise Cloud	5 GB
+- GitHub Free	2 GB
+- GitHub Pro	2 GB
+- GitHub Team	4 GB
+- GitHub Enterprise Cloud	5 GB
 
 #### Use shallow clones for CI
+Stolee, D., 2022. Get up to speed with partial clone and shallow clone | The GitHub Blog. [online] The GitHub Blog. Available at: <https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/> [Accessed 7 October 2022].
+
+As your Git repositories grow, it becomes harder and harder for new developers to clone and start working on them. Git is designed as a distributed version control system. This means that you can work on your machine without needing a connection to a central server that controls how you interact with the repository. This is only fully realizable if you have all reachable data in your local repository.
+
+What if there was a better way? Could you get started working in the repository without downloading every version of every file in the entire Git history? Git’s [partial clone and shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) features are options that can help here, but they come with their own tradeoffs. Each option breaks at least one expectation from the normal distributed nature of Git, and you might not be willing to make those tradeoffs.
+
+##### Shallow clones
+
+Partial clones are relatively new to Git, but there is an older feature that does something very similar to a treeless clone: shallow clones. Shallow clones use the --depth=<N> parameter in git clone to truncate the commit history. Typically, --depth=1 signifies that we only care about the most recent commits. Shallow clones are best combined with the --single-branch --branch=<branch> options as well, to ensure we only download the data for the commit we plan to use immediately.
+
+The object model for a shallow clone is shown in this diagram:
+
+![alt text]([https://www.sphinx-doc.org/en/master/_static/sphinxheader.png](https://github.blog/wp-content/uploads/2020/12/object-model-shallow.png?resize=800%2C414?w=800)
+    
+Here, the commit at HEAD exists, but its connection to its parents and the rest of the history is severed. The commits whose parents are removed are called shallow commits and together form the shallow boundary. The commit objects themselves have not changed, but there is some metadata in the client repository directing the Git client to ignore those parent connections. All trees and blobs are downloaded for any commit that exists on the client.
+
+Since the commit history is truncated, commands such as git merge-base or git log show different results than they would in a full clone! In general, you cannot count on them to work as expected. Recall that these commands work as expectedly in partial clones. Even in blobless clones, commands like git blame -- <path> will work correctly, if only a little slower than in full clones. Shallow clones don’t even make that a possibility!
+
+The other major difference is how git fetch behaves in a shallow clone. When fetching new commits, the server must provide every tree and blob that is “new” to these commits, relative to the shallow commits. This computation can be more expensive than a typical fetch, partly because a well-maintained server can make use of reachability bitmaps. Depending on how others are contributing to your remote repository, a git fetch operation in a shallow clone might end up downloading an almost-full commit history!
+
+Here are some descriptions of things that can go wrong with shallow clones that negate the supposed values. For these reasons we do not recommend shallow clones except for builds that delete the repository immediately afterwards. Fetching from shallow clones can cause more harm than good!
+
+Remember the “shallow boundary” mentioned earlier? The client sends that boundary to the server during a git fetch command, telling the server that it doesn’t have all of the reachable commits behind that boundary. The client then asks for the latest commits and everything reachable from those until hitting a shallow commit in the boundary. If another user starts a topic branch below that boundary and then the shallow client fetches that topic (or worse, the topic is merged into the default branch), then the server needs to walk the full history and serve the client what amounts to almost a full clone! Further, the server needs to calculate that data without the advantage of performance features like reachability bitmaps.
+    
+![alt text](https://github.blog/wp-content/uploads/2020/12/shallow-fetch-boundary.png?resize=650%2C248?w=650)
+
 #### Cache the repository on build agents
 #### Choose triggers carefully
 #### Favour hooking over polling
