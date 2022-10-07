@@ -261,8 +261,8 @@ What if there was a better way? Could you get started working in the repository 
 Partial clones are relatively new to Git, but there is an older feature that does something very similar to a treeless clone: shallow clones. Shallow clones use the --depth=<N> parameter in git clone to truncate the commit history. Typically, --depth=1 signifies that we only care about the most recent commits. Shallow clones are best combined with the --single-branch --branch=<branch> options as well, to ensure we only download the data for the commit we plan to use immediately.
 
 The object model for a shallow clone is shown in this diagram:
-
-![alt text](https://www.sphinx-doc.org/en/master/_static/sphinxheader.png](https://github.blog/wp-content/uploads/2020/12/object-model-shallow.png?resize=800%2C414?w=800)
+    
+![alt text](https://github.blog/wp-content/uploads/2020/12/object-model-shallow.png?resize=800%2C414?w=800)
     
 Here, the commit at HEAD exists, but its connection to its parents and the rest of the history is severed. The commits whose parents are removed are called shallow commits and together form the shallow boundary. The commit objects themselves have not changed, but there is some metadata in the client repository directing the Git client to ignore those parent connections. All trees and blobs are downloaded for any commit that exists on the client.
 
