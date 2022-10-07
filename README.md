@@ -352,7 +352,7 @@ Some software products (e.g. Linux distributions) also have long term support (L
 
 ### Pulse
     
-Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provides a great way to check the current or historical activity on a particular project or piece of software. This can be a good indicator of how well supported or maintained it is. A worthy consideration when establishing a preferable choice from a selection of competitors for a particular niche, is how actively maintained that choice of software is.
+Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provides a great way to check the current or historical activity on a particular project or piece of software. This can be a good indicator of how well supported or maintained it is. A worthy consideration when establishing a preferable choice from a selection of competitors for a particular task, is how actively maintained that choice of software is.
 
 ## Versioning
 ### Versioning
