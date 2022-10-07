@@ -310,6 +310,10 @@ While polling and webhooks both accomplish the same task, webhooks are far more 
     
     
 #### Be observant / sensitive to the build process
+    
+Attentiveness to the build process will enable optimisation of build-times. The virtue of this is that cummulatively much time will be saved, it could also be financially beneficial in terms of cloud or server billing and resources. This can be acheived in certain instances via caching files, analysing slow downloads or dependencies, looking for possibilities to parallelize and/or concurrently run elements of the build, time slow areas of builds and deduce the root causes and whether they can be improved upon.
+    
+See [this](https://jcdan3.medium.com/4-ways-to-speed-up-your-github-action-workflows-a0b08067a6c6) post for some introductory information on enhancing your next Github Actions build for example.  
 
 
 ## Dependency versions
