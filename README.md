@@ -317,8 +317,27 @@ See [this](https://jcdan3.medium.com/4-ways-to-speed-up-your-github-action-workf
 
 
 ## Dependency versions
+    
 ### LTS
-### Bleeding
+
+En.wikipedia.org. 2022. Long-term support - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Long-term_support> [Accessed 7 October 2022].
+    
+Long-term support (LTS) is a product lifecycle management policy in which a stable release of computer software is maintained for a longer period of time than the standard edition. The term is typically reserved for open-source software, where it describes a software edition that is supported for months or years longer than the software's standard edition.
+
+Short term support (STS) is a term that distinguishes the support policy for the software's standard edition. STS software has a comparatively short life cycle, and may be afforded new features that are omitted from the LTS edition to avoid potentially compromising the stability or compatibility of the LTS release
+    
+LTS applies the tenets of reliability engineering to the software development process and software release life cycle. Long-term support extends the period of software maintenance; it also alters the type and frequency of software updates (patches) to reduce the risk, expense, and disruption of software deployment, while promoting the dependability of the software. It does not necessarily imply technical support.
+    
+### Bleeding-edge
+    
+Investopedia. 2022. Bleeding Edge Technology. [online] Available at: <https://www.investopedia.com/terms/b/bleeding-edge-technology.asp#:~:text=our%20editorial%20policies-,What%20Is%20Bleeding%20Edge%20Technology%3F,in%20most%20cases%2C%20the%20consumer.> [Accessed 7 October 2022].
+
+[Bleeding-edge technology](https://en.wikipedia.org/wiki/Emerging_technologies#In_the_media) refers to a type of technology released to the public even though it has not been thoroughly tested and may be unreliable. Bleeding edge technology usually comes with a degree of risk and expense for the end-user—in most cases, the consumer. 
+
+Bleeding edge technology has a certain amount of risk, with early adopters facing a significant downside if the technology misses the mark.
+Consumers may not be that familiar with the product, it may not be thoroughly tested and it may have glitches that can't be quickly or easily fixed.
+Consumers that become early adopters could lose money, time, or sensitive information if the technology fails to deliver on its promises.
+    
 ### Stable
 ### Pulse
 
