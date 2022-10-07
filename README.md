@@ -180,19 +180,18 @@ Flake8 runs all the tools by launching the single flake8 command. It displays th
 
 It also adds a few features:
 
-files that contain this line are skipped:
+    files that contain this line are skipped:
 
-# flake8: noqa
-lines that contain a # noqa comment at the end will not issue warnings.
+        # flake8: noqa
+        lines that contain a # noqa comment at the end will not issue warnings.
 
-you can ignore specific errors on a line with # noqa: <error>, e.g., # noqa: E234. Multiple codes can be given, separated by comma. The noqa token is case insensitive, the colon before the list of codes is required otherwise the part after noqa is ignored
+        You can ignore specific errors on a line with # noqa: <error>, e.g., # noqa: E234. Multiple codes can be given, separated by comma.
 
-Git and Mercurial hooks
+        Git and Mercurial hooks
 
-extendable through flake8.extension and flake8.formatting entry points
+        Extendable through flake8.extension and flake8.formatting entry points
 
-Quickstart
-See our quickstart documentation for how to install and get started with Flake8.
+See the [quickstart](https://flake8.pycqa.org/en/latest/index.html#quickstart) documentation for how to install and get started with Flake8.
 
 ## Project management
 
