@@ -291,7 +291,17 @@ Depending on the type of workload such as in large repositories; multiple plans 
 The git cache is used even when different plans checkout the same repository to prevent duplicate and unnecessary checkouts of the same repository between plans. 
     
 #### Choose triggers carefully
+    
 #### Favour hooking over polling
+    
+![alt text](https://dz2cdn1.dzone.com/storage/temp/5679158-youre-better-than-this-polling-short.gif)
+    
+dzone.com. 2022. Webhooks vs. Polling: You're Better Than This - DZone Integration. [online] Available at: <https://dzone.com/articles/webhooks-vs-polling-youre-better-than-this-1> [Accessed 7 October 2022].
+    
+##### Be Nice…to Your Servers
+While polling and webhooks both accomplish the same task, webhooks are far more efficient. Zapier found that over 98.5% of polls are wasted. In contrast, webhooks only transfer data when there is new data to send, making them 100% efficient. That means that polling creates, on average, 66x more server load than webhooks. That’s a lot of wasted time, and if you’re paying per API call, a whole lot of wasted money.
+    
+    
 #### Be observant / sensitive to the build process
 
 
