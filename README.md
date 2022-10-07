@@ -339,7 +339,20 @@ Consumers may not be that familiar with the product, it may not be thoroughly te
 Consumers that become early adopters could lose money, time, or sensitive information if the technology fails to deliver on its promises.
     
 ### Stable
+
+En.wikipedia.org. 2022. Software release life cycle - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Software_release_life_cycle#:~:text=Also%20called%20production%20release%2C%20the,This%20release%20goes%20to%20production.> [Accessed 7 October 2022].
+    
+#### Stable release
+ 
+Also called production release, the stable release is the last release candidate (RC) which has passed all stages of verification and tests. The remaining bugs are considered as acceptable. This release goes to production.
+    
+Always favour stable releases when using third party libraries, dependencies, drivers, or other software of any kind.
+
+Some software products (e.g. Linux distributions) also have long term support (LTS) releases which are based on full releases that have already been tried and tested, and receive only security updates. This allows developers to allocate more time toward product development instead of updating code or finding and fixing newly introduced bugs due to outdated assumptions about the used system, language or underlying libraries.
+
 ### Pulse
+    
+Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provides a great way to check the current or historical activity on a particular project or piece of software. This can be a good indicator of how well supported or maintained it is. A worthy consideration when establishing a preferable choice from a selection of competitors for a particular niche, is how actively maintained that choice of software is.
 
 ## Versioning
 ### Versioning
