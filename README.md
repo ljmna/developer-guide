@@ -373,6 +373,78 @@ Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provi
 
 
 ## Environments
+### Docker
+### Python
+
+#### Python Environment Management Best Practices
+Perlton, C., 2022. Python Environment Management Best Practices. [online] Blog.inedo.com. Available at: <https://blog.inedo.com/python-environment-management-best-practices> [Accessed 12 October 2022].
+
+When you need to deploy and run Python scripts that others have written, it's important to run those in a well-managed Python environment. Otherwise, you run the risk of dependency conflicts, disorganization, and once-working scripts suddenly failing.
+
+There are several choices to make when managing environments for your Python projects, this article will explain best practices to follow and common mistakes to avoid when doing so.
+
+What is a Python Environment?
+By default, pip installs packages onto a global Python environment with a Python interpreter, a standard library, and pre-installed packages. Functionally this means that all projects on a system will use the same directories to store and retrieve packages.
+
+Virtual environments are often preferred due to their ability to keep projects separate. Global environments are best used when using Python for server management, running a quick Python script, or automating a server. Meanwhile, virtual environments are more appropriate for package management and complex Python projects. 
+
+Virtual Environments
+In the Python world, a virtual environment is a folder containing packages and other dependencies that a Python project needs. Contrary to a global environment, virtual environments are isolated coding spaces where Python packages can be installed, upgraded, and used. When you install or upgrade a package, the old versions stay installed in your directory, so different virtual environments can utilize different package versions. You can also specify the specific version of Python you want for your project. You have free choice between starting Python 2.7, Python 3.6, Python 3.7, Anaconda 4.4.0, and so on.
+
+Why the need for virtual environments?
+
+Virtual environments prevent dependency, version, and permission conflicts by keeping Python projects separate. Global environments run the risk of causing a dependency conflict that may prevent your application from building due to packages being dependent on specific versions of other packages.
+
+Consider two Python projects in a global environment that require NumPy 1.10 and NumPy 1.20 respectively. Python can’t differentiate between versions in the “site-packages” directory. So, both version 1.10 and version 1.20 would reside in the same directory with the same name.
+
+Global environments often get cluttered with dozens of different packages that were installed for various projects. There is no great way to organize or manage these in a global environment, making it difficult to thoroughly test your application against a specific set of packages with known versions.
+
+Best Practices for Managing Python Environments
+✔ Use a Virtual Environment
+Virtual environments should always be used unless Python is being utilized for server management or running simple scripts. There are many different Python package managers and virtual environments to choose from that come with a variety of different features. It’s important to carefully consider the best virtual environment for your Python project.
+
+Virtualenv is arguably the most popular and beginner-friendly Python virtual environment. It comes preinstalled with Python 2 as virtualenv and Python 3 as venv. The popular virtualenvwrapper extension adds additional features like tab completion and a single command to switch between environments.
+
+Pipenv is a package and virtual environment management tool that aims to integrate the functionality of Pip and virtualenv into a single tool. It’s a great tool with helpful features but it’s more complex to learn than virtualenv.
+
+Poetry is a feature-rich Python tool for project dependency management. It’s faster than most virtual environment tools and comes with a powerful CLI for managing Python projects.
+
+Conda is a multi-purpose package and environment management system that supports both Python and other languages like Ruby, Scala, R, and C/C++. It’s used to create, save, load, and switch between environments in your local machine. Conda is favored by data scientists and comes pre-installed in both anaconda and miniconda.
+
+✔ Use Requirement.txt Files
+The best way to make your work reproducible and keep your environment consistent is to include a requirments.txt file in your project’s root directory. A requirements.txt file contains a list of all the packages present in a project. Utilizing requirements.txt files can be done in two simple steps:
+
+Use pip freeze to output installed packages suitable for a requirements file:
+C:\> py -m pip freeze
+docutils==0.11
+Jinja2==2.7.2
+MarkupSafe==0.19
+Pygments==1.6
+Sphinx==1.2.2
+Generate a requirements.txt file and then install it into another environment:
+env1\bin\python -m pip freeze > requirements.txt
+env2\bin\python -m pip install -r requirements.txt
+Requirements.txt files help ensure consistency across installations, deployments, and developers. They also help manage Python dependencies!
+
+✔ Use a Separate Virtual Environment for Each Project
+Ideally, you should have one new virtual environment for every Python-based project you work on. The main purpose of this is to keep the dependencies of every project isolated from both the system and each other.
+
+If you have multiple projects that have roughly the same requirements, it might seem like a good idea to create a single virtual environment that both projects can share. The problem with this is that one of the projects could suddenly have requirements that break another project. The whole point of virtual environments is to isolate each project from other projects and their quirks.
+
+The disk space and convenience saved is marginal and simply not worth it. Furthermore, using requirements.txt files makes it easy to set up a virtual environment for a project and install what it needs with a couple of commands.
+
+X Don’t Forget to Activate Your Python virtual Environment
+Before a virtual environment can be used in a particular shell session, it has to be activated. Forgetting to active a virtual environment or activating the wrong one is an all too common mistake.
+
+Once activated, virtual environments are treated as the default Python instance until it’s deactivated by running the deactivate command. Keep in mind that activating a virtual environment is for a specific session and not for the system as a whole.
+
+X Don’t Use >= for Package Versioning in a Python Virtual Environment
+When utilizing requirements.txt files, you should specify packages with exact version numbers. For example, use mypackage==3.2, not mypackage>=3.2.
+
+If you don’t use specific versions of packages it will prevent one of the main benefits of using virtual environments: predictable builds. If you use >= instead of ==, there is no guarantee you, or someone else, will end up with the same version when the environment needs to be recreated.
+
+
+
 ### Environment images
 ### Gitpod
 
