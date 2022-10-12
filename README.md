@@ -51,7 +51,7 @@ Image Source: https://github.com/ybouz2/project-tech/wiki/Coding-standarts
 
 ### Why to Write Documentation
 
-(Library guides. Library Guides. (n.d.). Retrieved September 22, 2022, from https://guides.lib.berkeley.edu/ )
+*(Library guides. Library Guides. (n.d.). Retrieved September 22, 2022, from https://guides.lib.berkeley.edu/ )*
 
 Documentation effectively connects humans and machines.
 
@@ -205,7 +205,7 @@ Learn why [this](https://www.atlassian.com/continuous-delivery/continuous-integr
 
 ### CI-friendly repositories
 
-Google Cloud. 2022. DevOps tech: Continuous integration  |  DevOps capabilities  |  Google Cloud. [online] Available at: <https://cloud.google.com/architecture/devops/devops-tech-continuous-integration> [Accessed 7 October 2022].
+*Google Cloud. 2022. DevOps tech: Continuous integration  |  DevOps capabilities  |  Google Cloud. [online] Available at: <https://cloud.google.com/architecture/devops/devops-tech-continuous-integration> [Accessed 7 October 2022].*
 
 #### Intro
 
@@ -250,7 +250,7 @@ Using Git LFS, you can store files up to:
 - GitHub Enterprise Cloud	5 GB
 
 #### Use shallow clones for CI
-Stolee, D., 2022. Get up to speed with partial clone and shallow clone | The GitHub Blog. [online] The GitHub Blog. Available at: <https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/> [Accessed 7 October 2022].
+*Stolee, D., 2022. Get up to speed with partial clone and shallow clone | The GitHub Blog. [online] The GitHub Blog. Available at: <https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/> [Accessed 7 October 2022].*
 
 As your Git repositories grow, it becomes harder and harder for new developers to clone and start working on them. Git is designed as a distributed version control system. This means that you can work on your machine without needing a connection to a central server that controls how you interact with the repository. This is only fully realizable if you have all reachable data in your local repository.
 
@@ -278,7 +278,7 @@ Remember the “shallow boundary” mentioned earlier? The client sends that bou
 
 #### Cache the repository on build agents
     
-Google Cloud. 2022. DevOps tech: Continuous integration  |  DevOps capabilities  |  Google Cloud. [online] Available at: <https://cloud.google.com/architecture/devops/devops-tech-continuous-integration> [Accessed 7 October 2022].
+*Google Cloud. 2022. DevOps tech: Continuous integration  |  DevOps capabilities  |  Google Cloud. [online] Available at: <https://cloud.google.com/architecture/devops/devops-tech-continuous-integration> [Accessed 7 October 2022].*
     
 Use case example:
     
@@ -303,7 +303,7 @@ If you want to run a build on that commit later, use the Run trigger button in t
     
 ![alt text](https://dz2cdn1.dzone.com/storage/temp/5679158-youre-better-than-this-polling-short.gif)
     
-dzone.com. 2022. Webhooks vs. Polling: You're Better Than This - DZone Integration. [online] Available at: <https://dzone.com/articles/webhooks-vs-polling-youre-better-than-this-1> [Accessed 7 October 2022].
+*dzone.com. 2022. Webhooks vs. Polling: You're Better Than This - DZone Integration. [online] Available at: <https://dzone.com/articles/webhooks-vs-polling-youre-better-than-this-1> [Accessed 7 October 2022].*
     
 ##### Be Nice…to Your Servers
 While polling and webhooks both accomplish the same task, webhooks are far more efficient. Zapier found that over 98.5% of polls are wasted. In contrast, webhooks only transfer data when there is new data to send, making them 100% efficient. That means that polling creates, on average, 66x more server load than webhooks. That’s a lot of wasted time, and if you’re paying per API call, a whole lot of wasted money.
@@ -320,7 +320,7 @@ See [this](https://jcdan3.medium.com/4-ways-to-speed-up-your-github-action-workf
     
 ### LTS
 
-En.wikipedia.org. 2022. Long-term support - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Long-term_support> [Accessed 7 October 2022].
+*En.wikipedia.org. 2022. Long-term support - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Long-term_support> [Accessed 7 October 2022].*
     
 Long-term support (LTS) is a product lifecycle management policy in which a stable release of computer software is maintained for a longer period of time than the standard edition. The term is typically reserved for open-source software, where it describes a software edition that is supported for months or years longer than the software's standard edition.
 
@@ -330,7 +330,7 @@ LTS applies the tenets of reliability engineering to the software development pr
     
 ### Bleeding-edge
     
-Investopedia. 2022. Bleeding Edge Technology. [online] Available at: <https://www.investopedia.com/terms/b/bleeding-edge-technology.asp#:~:text=our%20editorial%20policies-,What%20Is%20Bleeding%20Edge%20Technology%3F,in%20most%20cases%2C%20the%20consumer.> [Accessed 7 October 2022].
+*Investopedia. 2022. Bleeding Edge Technology. [online] Available at: <https://www.investopedia.com/terms/b/bleeding-edge-technology.asp#:~:text=our%20editorial%20policies-,What%20Is%20Bleeding%20Edge%20Technology%3F,in%20most%20cases%2C%20the%20consumer.> [Accessed 7 October 2022].*
 
 [Bleeding-edge technology](https://en.wikipedia.org/wiki/Emerging_technologies#In_the_media) refers to a type of technology released to the public even though it has not been thoroughly tested and may be unreliable. Bleeding edge technology usually comes with a degree of risk and expense for the end-user—in most cases, the consumer. 
 
@@ -340,7 +340,7 @@ Consumers that become early adopters could lose money, time, or sensitive inform
     
 ### Stable
 
-En.wikipedia.org. 2022. Software release life cycle - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Software_release_life_cycle#:~:text=Also%20called%20production%20release%2C%20the,This%20release%20goes%20to%20production.> [Accessed 7 October 2022].
+*En.wikipedia.org. 2022. Software release life cycle - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Software_release_life_cycle#:~:text=Also%20called%20production%20release%2C%20the,This%20release%20goes%20to%20production.> [Accessed 7 October 2022].*
     
 #### Stable release
  
@@ -377,7 +377,7 @@ Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provi
 ### Python
 
 #### Python Environment Management Best Practices
-Perlton, C., 2022. Python Environment Management Best Practices. [online] Blog.inedo.com. Available at: <https://blog.inedo.com/python-environment-management-best-practices> [Accessed 12 October 2022].
+*Perlton, C., 2022. Python Environment Management Best Practices. [online] Blog.inedo.com. Available at: <https://blog.inedo.com/python-environment-management-best-practices> [Accessed 12 October 2022].*
 
 When you need to deploy and run Python scripts that others have written, it's important to run those in a well-managed Python environment. Otherwise, you run the risk of dependency conflicts, disorganization, and once-working scripts suddenly failing.
 
