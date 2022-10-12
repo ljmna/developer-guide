@@ -79,7 +79,8 @@ Consider the following questions:
 - What variables did you use?
 - Did you use any code to clean/analyze your data?
 
-### Best practices for Documenting your project
+### 
+for Documenting your project
 
 - Include a README file that contains
     - A brief description of the project
@@ -400,7 +401,9 @@ Consider two Python projects in a global environment that require NumPy 1.10 and
 Global environments often get cluttered with dozens of different packages that were installed for various projects. There is no great way to organize or manage these in a global environment, making it difficult to thoroughly test your application against a specific set of packages with known versions.
 
 ##### Best Practices for Managing Python Environments
-✔ Use a Virtual Environment
+    
+###### ✔ Use a Virtual Environment
+    
 Virtual environments should always be used unless Python is being utilized for server management or running simple scripts. There are many different Python package managers and virtual environments to choose from that come with a variety of different features. It’s important to carefully consider the best virtual environment for your Python project.
 
 Virtualenv is arguably the most popular and beginner-friendly Python virtual environment. It comes preinstalled with Python 2 as virtualenv and Python 3 as venv. The popular virtualenvwrapper extension adds additional features like tab completion and a single command to switch between environments.
@@ -411,7 +414,7 @@ Poetry is a feature-rich Python tool for project dependency management. It’s f
 
 Conda is a multi-purpose package and environment management system that supports both Python and other languages like Ruby, Scala, R, and C/C++. It’s used to create, save, load, and switch between environments in your local machine. Conda is favored by data scientists and comes pre-installed in both anaconda and miniconda.
 
-##### ✔ Use Requirement.txt Files
+###### ✔ Use Requirement.txt Files
 The best way to make your work reproducible and keep your environment consistent is to include a requirments.txt file in your project’s root directory. A requirements.txt file contains a list of all the packages present in a project. Utilizing requirements.txt files can be done in two simple steps:
 
 Use pip freeze to output installed packages suitable for a requirements file:
@@ -426,19 +429,19 @@ env1\bin\python -m pip freeze > requirements.txt
 env2\bin\python -m pip install -r requirements.txt
 Requirements.txt files help ensure consistency across installations, deployments, and developers. They also help manage Python dependencies!
 
-##### ✔ Use a Separate Virtual Environment for Each Project
+###### ✔ Use a Separate Virtual Environment for Each Project
 Ideally, you should have one new virtual environment for every Python-based project you work on. The main purpose of this is to keep the dependencies of every project isolated from both the system and each other.
 
 If you have multiple projects that have roughly the same requirements, it might seem like a good idea to create a single virtual environment that both projects can share. The problem with this is that one of the projects could suddenly have requirements that break another project. The whole point of virtual environments is to isolate each project from other projects and their quirks.
 
 The disk space and convenience saved is marginal and simply not worth it. Furthermore, using requirements.txt files makes it easy to set up a virtual environment for a project and install what it needs with a couple of commands.
 
-##### X Don’t Forget to Activate Your Python virtual Environment
+###### X Don’t Forget to Activate Your Python virtual Environment
 Before a virtual environment can be used in a particular shell session, it has to be activated. Forgetting to active a virtual environment or activating the wrong one is an all too common mistake.
 
 Once activated, virtual environments are treated as the default Python instance until it’s deactivated by running the deactivate command. Keep in mind that activating a virtual environment is for a specific session and not for the system as a whole.
 
-##### X Don’t Use >= for Package Versioning in a Python Virtual Environment
+###### X Don’t Use >= for Package Versioning in a Python Virtual Environment
 When utilizing requirements.txt files, you should specify packages with exact version numbers. For example, use mypackage==3.2, not mypackage>=3.2.
 
 If you don’t use specific versions of packages it will prevent one of the main benefits of using virtual environments: predictable builds. If you use >= instead of ==, there is no guarantee you, or someone else, will end up with the same version when the environment needs to be recreated.
