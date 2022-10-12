@@ -374,7 +374,103 @@ Github [pulse](https://github.blog/2013-04-18-get-up-to-speed-with-pulse/) provi
 
 
 ## Environments
+    
 ### Docker
+    
+#### Frequently Asked Questions (FAQs)
+    
+Q1: What are the three benefits of Docker?
+Answer: Dockers are preferred by users for its main benefits such as its Performance, Scalability, and Profitability. 
+
+Q2. What is Docker Compose?
+Answer: Compose is a Docker application that allows you to define and operate multi-container Docker applications. Users can create application's services using Compose using a YAML file. Then the user can build and start all of the services from their setup with a single command. 
+
+Q3. Is Docker free of cost?
+Answer: Small enterprises (with less than 250 people and less than $10 million in yearly revenue), personal usage, education, and non-commercial open-source initiatives can continue to utilise Docker Desktop for free. For commercial use in bigger businesses, it requires a premium subscription (Pro, Team, or Business) for as little as $5 per month. 
+
+Q4. What is the main difference between docker and container?
+Answer: Docker is a service that manages containers. Container, on the other hand, is software that bundles up code and all of its dependencies so that programs may operate quickly and reliably in different computing environments.
+    
+#### Why Use Docker?
+Many of the users ask the most common question: Why use docker? The answer is, Containerizing programs have a variety of advantages which include:
+
+##### Portability Across Machines
+You may deploy your containerized program to any other system that runs Docker after testing it. You can be confident that it will perform precisely as it did during the test. 
+
+##### Rapid Performance
+Although virtual machines are an alternative to containers, containers do not contain an operating system (whereas virtual machines do), which implies that containers have a considerably smaller footprint and are faster to construct and start than virtual machines. 
+
+##### Lightweight
+Containers' portability and performance advantages can aid in making your development process more fluid and responsive. Using containers and technology like Enterprise Developer Build Tools for Windows to improve your continuous integration and continuous delivery processes makes it easier to provide the appropriate software at the right time. Enterprise Developer Build Tools for Windows is a component of Enterprise Developer that provides all of Enterprise Developer's features for compiling, building, and testing COBOL code without the need for an IDE. 
+
+##### Isolation
+Any supporting software your application requires is likewise included in a Docker container that hosts one of your applications. It's not a problem if other Docker containers include apps that require different versions of the same supporting software because the Docker containers are completely self-contained. 
+
+This also implies that as you progress through the stages of your development lifecycle, you can be confident that a picture you create during development will operate identically in testing and, potentially, in front of your users. 
+
+##### Scalability
+If the demand for your apps necessitates, you can quickly generate new containers. You can use a variety of container management techniques when using multiple containers. For additional information on these choices, consult the Docker manual. 
+
+#### Tools And Terms Of Docker
+When utilizing Docker, you'll come across the following terminology: 
+
+##### Docker Hub 
+A community resource for working with Docker that is hosted in the cloud. Docker Hub is mostly used for hosting images, but it is also used for user authentication and image-building automation. Anyone can upload images to Docker Hub for free. Individuals or organizations who contribute images to Docker Hub are not checked or verified in any way. 
+
+##### Docker Store 
+Docker Store is a cloud-based repository comparable to Docker Hub, except that the images on Docker Store have been contributed by commercial businesses that Docker has approved or certified. 
+
+##### Docker File
+A text file with the commands for creating a Docker image. The commands you can specify in a Dockerfile range from sophisticated (such as specifying an existing image to use as a base) to basic (such as specifying an existing image to use as a base) (such as copying files from one directory to another).
+
+For example, you could make a Dockerfile that starts with the Ubuntu image and then adds the Apache web server, your application, and any other configuration parameters you need. The docker build command is used to create an image from a Dockerfile. 
+
+##### Docker Image 
+A self-contained, executable package that can be used in a container. A Docker image is a binary that contains all of the necessary components for executing a single Docker container and metadata specifying the container's requirements and capabilities.
+
+An image contains everything needed to run an application, including the executable code, any software that the application relies on, and any necessary configuration settings. You can either create your images (using a Dockerfile) or use images created by others and made available in a registry (such as Docker Hub).
+
+The docker build command is used to create an image from a Dockerfile. The docker run command is used to run an image in a container. 
+
+##### Sandbox
+The term 'sandbox' refers to a computing environment in which everything that happens inside it stays inside the sandbox. If you run 'rm –rf' inside the sandbox, the contents of the sandbox will be deleted, but the host system that has the sandbox will be unaffected. 
+
+Docker images are a type of container 
+Docker images consist of executable application source code and the tools required, libraries, and dependencies required for the application code to execute in a container. When you run the Docker image, it creates a single (or multiple) container instances from the code.
+
+Although it is possible to create a Docker image from scratch, most developers use popular repositories. A single base image can be used to create several Docker images, and all of the created images will share the same stack. 
+
+Layers constitute Docker images, and each layer represents a different version of the given image. A new top layer is created whenever a developer makes certain modifications to the image required, and this top layer replaces the previous top layer as the current version of the image. Previous layers are kept in a rollback manner or re-used in future projects. 
+
+A new container layer is created whenever a container is formed from a Docker image. Changes to the container, which means adding or removing files, are only saved to the container layer and are only visible while the container is running. This iterative image-creation process improves overall efficiency because numerous live container instances can run from a single base image and share a stack. 
+
+The Docker daemon is an identical program that runs in the background 
+The Docker daemon is a service that runs on your operating systems, such as Windows, macOS, or iOS. This particular service, which acts as the control center of the Docker implementation, produces and manages your Docker images for you using commands from the individual client.
+
+Docker Register is a registry for Docker containers
+A Docker registry is a scalable open-source Docker image storage and distribution mechanism. The registry allows users to keep track of image versions in repositories by tagging them. Git, a version control tool, is also used to do this. 
+
+#### Why Docker Matters?
+The Docker project promotes itself as "Docker for everyone". And the reason for this is the ease with which it can be used. Even a non-technical person can easily start and execute any Docker project with just a few commands because this technology is so simple to master and completely Open Source.
+
+Assume that a team of four developers is working on a single project. In the meantime, one uses Windows, and the other uses Linux, and the third and fourth use macOS. As you can see, they are utilizing separate environments to create a single program or software, and they will be required to do things according to their machines, such as installing different libraries and files for their system and so on.
+
+And in such circumstances, particularly on a higher or organizational level, frequently result in multiple conflicts and challenges throughout the software development life cycle. Containerization solutions like Docker, on the other hand, eliminate this issue. 
+
+#### Why Use Docker Compose?
+Docker Compose is a useful service that allows users to run several containers as one. All individual containers here run in isolation mode, but they can communicate with one another if needed. The scripting language YAML, which implies Yet Another Markup Language and is based on XML, makes writing Docker Compose files more comfortable. Another excellent feature of Docker Compose is that users may use a single command to enable all services (containers). 
+
+#### Docker Composer 
+
+You'll need to use a container orchestration tool to monitor and manage container lifecycles in more sophisticated setups. Although Docker has its identical orchestration tool (Docker Swarm), most developers prefer Kubernetes.
+
+##### Docker Compose Advantages
+The term "single-host deployment" refers to the ability to execute everything on a single piece of hardware. 
+YAML scripts provide for quick and easy configuration. 
+Docker Compose increases productivity by reducing the time it takes to complete activities. 
+Security - Because all containers are isolated from one another, the threat landscape is reduced. 
+
+    
 ### Python
 
 #### Python Environment Management Best Practices
