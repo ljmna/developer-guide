@@ -551,7 +551,113 @@ If you don’t use specific versions of packages it will prevent one of the main
 ## Approach to development
 
 ### Fix code issues immediately
+
+*Perlton, C., 2022. Python Environment Management Best Practices. [online] Blog.inedo.com. Available at: <https://blog.inedo.com/python-environment-management-best-practices> [Accessed 12 October 2022].*
+
+You are working on that fresh project and you see a bad piece of code somewhere. The wrong way to approach it is “nah, that’s someone else’s code, I’m not doing anything about it”, “I don’t have time to fix that – I have other tasks”, “I’ll surely break things if I change this”.
+
+The problem is – bad code accumulates. Even if the piece is a small one, it adds up over time and soon enough you have that “big legacy project that was written by some incompetent guys and no one wants to support”. Someone once said that in six months all projects are “legacy”, because they have a lot of accumulated bad code. Or in other words – technical debt.
+
+That’s why you should fix it immediately. When you see some, or somethinthing bad that’s not exaactly a great practice – fix it. Now. Or it will be too late, because then other code will start depending on that, and new code will follow the same practice (sometimes with copy/paste), and fixing it will be a nightmare. Let’s address the wrong statements above:
+
+“nah, that’s someone else’s code, I’m not doing anything about it” – so, what? You are in that project, you have the “right” to modify it. If the other person has written their code in a bad way, it might be that they even don’t know it’s bad – so they won’t fix it. And I don’t think they will get offended if you fix it. They might, but that’s not your problem.
+“I don’t have time to fix that – I have other tasks” – this is a task as well. And you can raise an issue/ticket in your issue tracker that says “refactor X”, and then log hours there. You can delay it until the next sprint (if agile). Problems with management insisting on making new things rather than fixing the old ones? Tell them to go read “Refactoring”…or Spolsky…or this blog. (It won’t help, but anyway)
+“I’ll surely break things if I change this” – possibly, yes. Hm, wait, you have unit-tests, right? And integration tests, and build-acceptance tests? If not – go ahead and fix that first. Then you won’t be so afraid of breaking things.
+Code reviews are also important in regard to this problem. If all code that gets committed is code-reviewed, the chance that a bad piece will go in unnoticed is decreasing. It still happens, but more rarely.
+
+The only problem with that approach is – how can you be certain a piece of code is bad? Well, here comes experience, knowledge of best practices, patterns. I can’t give you a recipe for that. But you should have a couple of people in your team that are capable of identifying bad code. If there is none – get Code Complete (and Effective Java (if your language is Java)).
+
+So – fix that code immediately. It saves time and headaches, and makes you a bit more proud of the project, rather than “that’s something bad that some incompetent folks wrote, I was just doing some tasks on the side”. Because you can’t say that – if the project is bad, it’s your fault as well.
+
 ### Readability
+
+*Docs.python-guide.org. 2022. Code Style — The Hitchhiker's Guide to Python. [online] Available at: <https://docs.python-guide.org/writing/style/> [Accessed 13 October 2022].*
+
+If you ask Python programmers what they like most about Python, they will often cite its high readability. Indeed, a high level of readability is at the heart of the design of the Python language, following the recognized fact that code is read much more often than it is written.
+
+One reason for the high readability of Python code is its relatively complete set of Code Style guidelines and “Pythonic” idioms.
+
+When a veteran Python developer (a Pythonista) calls portions of code not “Pythonic”, they usually mean that these lines of code do not follow the common guidelines and fail to express its intent in what is considered the best (hear: most readable) way.
+
+On some border cases, no best way has been agreed upon on how to express an intent in Python code, but these cases are rare.
+
+#### General concepts
+
+##### Explicit code
+
+While any kind of black magic is possible with Python, the most explicit and straightforward manner is preferred.
+
+Bad
+
+```
+def make_complex(*args):
+    x, y = args
+    return dict(**locals())
+```
+
+Good
+
+```
+def make_complex(x, y):
+    return {'x': x, 'y': y}
+In the good code above, x and y are explicitly received from the caller, and an explicit dictionary is returned. The developer using this function knows exactly what to do by reading the first and last lines, which is not the case with the bad example.
+```
+
+##### One statement per line
+
+While some compound statements such as list comprehensions are allowed and appreciated for their brevity and their expressiveness, it is bad practice to have two disjointed statements on the same line of code.
+
+Bad
+
+```
+print('one'); print('two')
+
+if x == 1: print('one')
+
+if <complex comparison> and <other complex comparison>:
+    # do something
+```
+
+Good
+
+```
+print('one')
+print('two')
+
+if x == 1:
+    print('one')
+
+cond1 = <complex comparison>
+cond2 = <other complex comparison>
+
+if cond1 and cond2:
+    # do something
+```
+
+##### Function arguments
+
+Arguments can be passed to functions in four different ways.
+
+Positional arguments are mandatory and have no default values. They are the simplest form of arguments and they can be used for the few function arguments that are fully part of the function’s meaning and their order is natural. For instance, in send(message, recipient) or point(x, y) the user of the function has no difficulty remembering that those two functions require two arguments, and in which order.
+In those two cases, it is possible to use argument names when calling the functions and, doing so, it is possible to switch the order of arguments, calling for instance send(recipient='World', message='Hello') and point(y=2, x=1) but this reduces readability and is unnecessarily verbose, compared to the more straightforward calls to send('Hello', 'World') and point(1, 2).
+
+Keyword arguments are not mandatory and have default values. They are often used for optional parameters sent to the function. When a function has more than two or three positional parameters, its signature is more difficult to remember and using keyword arguments with default values is helpful. For instance, a more complete send function could be defined as send(message, to, cc=None, bcc=None). Here cc and bcc are optional, and evaluate to None when they are not passed another value.
+Calling a function with keyword arguments can be done in multiple ways in Python; for example, it is possible to follow the order of arguments in the definition without explicitly naming the arguments, like in send('Hello', 'World', 'Cthulhu', 'God'), sending a blind carbon copy to God. It would also be possible to name arguments in another order, like in send('Hello again', 'World', bcc='God', cc='Cthulhu'). Those two possibilities are better avoided without any strong reason to not follow the syntax that is the closest to the function definition: send('Hello', 'World', cc='Cthulhu', bcc='God').
+
+As a side note, following the YAGNI principle, it is often harder to remove an optional argument (and its logic inside the function) that was added “just in case” and is seemingly never used, than to add a new optional argument and its logic when needed.
+
+The arbitrary argument list is the third way to pass arguments to a function. If the function intention is better expressed by a signature with an extensible number of positional arguments, it can be defined with the *args constructs. In the function body, args will be a tuple of all the remaining positional arguments. For example, send(message, *args) can be called with each recipient as an argument: send('Hello', 'God', 'Mom', 'Cthulhu'), and in the function body args will be equal to ('God', 'Mom', 'Cthulhu').
+However, this construct has some drawbacks and should be used with caution. If a function receives a list of arguments of the same nature, it is often more clear to define it as a function of one argument, that argument being a list or any sequence. Here, if send has multiple recipients, it is better to define it explicitly: send(message, recipients) and call it with send('Hello', ['God', 'Mom', 'Cthulhu']). This way, the user of the function can manipulate the recipient list as a list beforehand, and it opens the possibility to pass any sequence, including iterators, that cannot be unpacked as other sequences.
+
+The arbitrary keyword argument dictionary is the last way to pass arguments to functions. If the function requires an undetermined series of named arguments, it is possible to use the **kwargs construct. In the function body, kwargs will be a dictionary of all the passed named arguments that have not been caught by other keyword arguments in the function signature.
+The same caution as in the case of arbitrary argument list is necessary, for similar reasons: these powerful techniques are to be used when there is a proven necessity to use them, and they should not be used if the simpler and clearer construct is sufficient to express the function’s intention.
+
+It is up to the programmer writing the function to determine which arguments are positional arguments and which are optional keyword arguments, and to decide whether to use the advanced techniques of arbitrary argument passing. If the advice above is followed wisely, it is possible and enjoyable to write Python functions that are:
+
+- easy to read (the name and arguments need no explanations)
+- easy to change (adding a new keyword argument does not break other parts of the code)
+
+
 ### Reusability
 ### Single statements per line
 ### Keep within 80 char line
